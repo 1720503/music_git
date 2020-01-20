@@ -1,0 +1,13 @@
+html
+    head
+        link(ref="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+        link(rel="stylesheet" href="css/materialize.min.css" media="screen,projection")
+        link(rel="stylesheet" href="css/app.css")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    body
+        script(type="text/javascript" src="js/materialize.min.js")
+        div(class="container")
+            form(method='post', action='/song')
+                label 検索: 
+                input(type='text', name='song_name_context')
+                input(type='submit', value='検索')
