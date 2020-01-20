@@ -8,14 +8,12 @@ html
         script(type="text/javascript" src="js/materialize.min.js")
         div(class="container")
             form(method='post', action='/song')
-                label 検索: 
+                label キーワード: 
                 input(type='text', name='song_name_context')
                 input(type='submit', value='検索')
             each row in results
                 div(class="row") 
                     div(class="col 12")
-		    
-                        img(class="icon" src="icons/"+row['song_name']+".png" align="left") 
-			
+                        img(class="icon" src="icons/"+row['song_name']+".png") 	
                     div(class="col s11") 
-                        div(class="musicinfo") <font size ="5">#{row['song_name']}</font></br>#{row['artist']}</br>#{row['album']} 
+                        div(class="musicinfo") <font size ="6">#{row['song_name']}</font></br>#{row['artist']}#{row['album']} 
