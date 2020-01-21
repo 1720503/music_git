@@ -1,0 +1,21 @@
+html
+    head
+        link(ref="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+        link(rel="stylesheet" href="css/materialize.min.css" media="screen,projection")
+        link(rel="stylesheet" href="css/app.css")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    body
+        script(type="text/javascript" src="js/materialize.min.js")
+        div(class="container")
+            form(method='post', action='/song')
+                label キーワード: 
+                input(type='text', name='song_name_context')
+                input(type='submit', value='検索')
+            each row in results
+                div(class="row") 
+                    div(class="col 12")
+		    
+                        img(class="icon" src="icons/"+row['song_name']+".png" align="left") 
+			
+                    div(class="col s11") 
+                        div(class="musicinfo") <font size ="5">#{row['song_name']}</font></br>#{row['artist']}</br>#{row['album']} 
