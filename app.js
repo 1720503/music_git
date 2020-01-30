@@ -44,15 +44,17 @@ app.get('/', function (req, res, next) {
 app.post('/song', function (req, res, next) {
 
     song_name_c = req.body['song_name_context'];
-    console.log(song_name_c);
+    
     var query = "\
      SELECT song_name,artist,album \
      FROM song\
-     WHERE song_name like '%"+song_name_c+"%'"
- 
-    console.log(query);
+     WHERE song_name like ?"
     
-    db.all(query, {}, function (err, rows) {
+    console.log(query);
+
+    var song_title = "%"+song_name_c+"%"
+    
+    db.all(query, song_title, function (err, rows) {
         if (err) {
             console.log("ERROR: " + err.message);
         }
@@ -60,6 +62,7 @@ app.post('/song', function (req, res, next) {
             results: rows
         })
     });
+
 });
 
 
